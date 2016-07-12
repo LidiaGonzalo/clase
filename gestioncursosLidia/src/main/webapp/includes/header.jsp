@@ -1,3 +1,5 @@
+<%@page import="com.ipartek.formacion.pojo.Curso"%>
+<%@page import="com.ipartek.formacion.pojo.Alumno"%>
 <%@page import="com.ipartek.formacion.pojo.Modulo"%>
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -24,7 +26,13 @@
 	 <![endif]-->
 </head>
 <body class="container-fluid">
-	<header class="row"><h1 class="col-xs-12">Ipartek - Gestion de Cursos</h1></header>
+	<header class="row">
+		<h1 class="col-xs-8">Ipartek - Gestion de Cursos</h1>
+		<a class="btn col-xs-offset-2 col-xs-2 btn-info" href="#">
+			<span class="fa fa-sign-out" aria-hidden="true"></span>
+			Desconectar
+		</a>
+	</header>
 	
 	<nav class="navbar navbar-inverse" role="navigation">
 		  <!-- El logotipo y el icono que despliega el menú se agrupan
@@ -43,19 +51,46 @@
     		<ul class="nav navbar-nav">
     			<li class="dropdown">
 					<a class="dropdown-toggle" href="<%=Constantes.SERVLET_CURSOS%>">
-						Ver todos los cursos
+						Cursos
 					</a>
+					<ul>
+						<li>
+							<a href="<%=Constantes.SERVLET_CURSOS%>">
+							Ver Cursos
+							</a>						
+						</li>
+						<li>
+							<a  href="<%=Constantes.SERVLET_CURSOS%>?<%=Constantes.PAR_CODIGO%>=<%=Curso.CODIGO_CURSO%>">
+							Crear Curso Nuevo
+							</a>						
+						</li>
+					</ul>
 				</li>
 				<li class="dropdown">
 					<a href="<%=Constantes.SERVLET_ALUMNOS%>">
-						Ver todos los alumnos
+						Alumnos
 					</a>
+					<ul>
+						<li>
+							<a href="<%=Constantes.SERVLET_ALUMNOS%>">
+								Todos los alumnos
+							</a>
+						</li>
+						<li>
+							<a href="<%=Constantes.SERVLET_ALUMNOS%>?<%=Constantes.PAR_CODIGO%>=<%=Alumno.CODIGO_ALUMNO%>">Crear Alumno Nuevo</a></li>
+						</li>
+					</ul>
 				</li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="<%=Constantes.SERVLET_MODULOS%>">
-						Ver todos los modulos
+						Modulos
 					</a>
 					<ul class="dropdown-menu">
+						<li>
+							<a href="<%=Constantes.SERVLET_MODULOS%>">
+								Ver Modulos
+							</a>
+						</li>
 						<li><a href="<%=Constantes.SERVLET_MODULOS%>?<%=Constantes.PAR_CODIGO%>=<%=Modulo.CODIGO_MODULO%>">Crear Modulo Nuevo</a></li>
 					</ul>
 				</li>

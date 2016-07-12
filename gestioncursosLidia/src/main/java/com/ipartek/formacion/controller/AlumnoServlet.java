@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.ipartek.formacion.controller.exception.AlumnoError;
+import com.ipartek.formacion.controller.listener.InitListener;
 import com.ipartek.formacion.pojo.Alumno;
 import com.ipartek.formacion.pojo.Curso;
 import com.ipartek.formacion.pojo.Idioma;
@@ -32,6 +35,9 @@ public class AlumnoServlet extends HttpServlet {
 	 private List<Alumno> alumnos = null;
 	 private Alumno alumno = null;   
 	 private int operacion = -1;
+	 //añadir los log
+	 private final static Logger log=Logger.getLogger(InitListener.class);
+	 private final static String PATH_LOG4J="WEB-INF/conf/log4j.properties";
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
