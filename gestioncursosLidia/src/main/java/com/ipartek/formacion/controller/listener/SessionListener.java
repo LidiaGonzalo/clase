@@ -1,7 +1,9 @@
 package com.ipartek.formacion.controller.listener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -73,13 +75,25 @@ public class SessionListener implements HttpSessionListener, HttpSessionActivati
     	HttpSession session=se.getSession();
     	//saber si el usuario es nulo o no
     	if(session.getAttribute(Constantes.ATT_USUARIO)!=null){
-    		Usuario usuario=(Usuario)session.getAttribute(Constantes.ATT_USUARIO);
-    		log.info(usuario.getUserName());
+    		/*Usuario usuario=(Usuario)session.getAttribute(Constantes.ATT_USUARIO);
+    		log.info(usuario.getUserName());*/
     		totalUsuarios++;//incrementar el cont de usuarios 
 			//metodo addUsuario y le paso el session
 			addUsuario(se);
+			addSession(se);
     	}
     }
+	private void addSession(HttpSessionBindingEvent se) {
+		Map<String,HttpSession> sesiones = null;//nulo porq cuando inicio la app no hay ninguna sesión
+		if( sesiones == null){
+			sesiones = new HashMap<String, HttpSession>();
+		}
+		HttpSession session = se.getSession();
+		ServletContext context = session.getServletContext();
+		sesiones.put(session.getId(), session);
+		context.setAttribute(Constantes.ATT_LISTADO_SESIONES,sesiones);
+		
+	}
 	private void addUsuario(HttpSessionBindingEvent se){
 		Usuario user=null;
 		List<Usuario> usuarios=null;
@@ -88,15 +102,16 @@ public class SessionListener implements HttpSessionListener, HttpSessionActivati
 		ServletContext context = session.getServletContext();
 		usuarios = (List<Usuario>) context.getAttribute(Constantes.ATT_LIST_USUARIOS);
 		//si somos los primeros en logearnos el array estará vacío
-		if(usuarios!=null){//si está vacío creamos uno
+		if(usuarios==null){//si está vacío creamos uno
 			usuarios=new ArrayList<Usuario>();
-			user=(Usuario)session.getAttribute(Constantes.ATT_LIST_USUARIOS);
-			//agregar el usuario a la lista
-			usuarios.add(user);
-			//guardar lista dentro del contexto
-			context.setAttribute(Constantes.ATT_LIST_USUARIOS,usuarios);
-			log.info(user.getUserName());
-					}
+		}
+		//agregar el usuario a la lista
+		user = (Usuario)session.getAttribute(Constantes.ATT_USUARIO);
+		usuarios.add(user);
+		//guardar lista dentro del contexto
+		context.setAttribute(Constantes.ATT_LIST_USUARIOS,usuarios);
+		log.info(user.getUserName());
+					
 	}
 
 	/**
@@ -107,9 +122,10 @@ public class SessionListener implements HttpSessionListener, HttpSessionActivati
          if(se.getName().equals(Constantes.ATT_USUARIO)){//si el nombre del atributo q has quitado, es el atributo de usuario dame el valor
      		Usuario usuario=(Usuario)se.getValue();
      		totalUsuarios--;
+     		//cuando alguien se desloguea quitar usuario de la lista
+   		    removeUsuario(se);
          }
-		 //cuando alguien se desloguea quitar usuario de la lista
-		 removeUsuario(se);
+		 
     }
 	private void removeUsuario(HttpSessionBindingEvent se){
 		List<Usuario> usuarios = null;
@@ -135,7 +151,7 @@ public class SessionListener implements HttpSessionListener, HttpSessionActivati
 		}
 
 		return encontrado;
-		//crear carpeta administración->ver usuarios logueados
+		// carpeta administración->ver usuarios logueados
 	}
 
 	/**
