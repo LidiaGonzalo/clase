@@ -42,14 +42,17 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter(Constantes.PAR_USERNAME);
 		String pass = request.getParameter(Constantes.PAR_PASSWORD);
 		if("lidia".equals(userName)&&"lidia".equals(pass)){
+			createSession(request);
 			usuario = new Usuario();
 			usuario.setUserName(userName);
 			usuario.setUserPassword(pass);
 			usuario.setNickname("alumna");
-			createSession(request);
-			session.setAttribute("usuario", usuario);
+			//añadir el id de la sesión
+			usuario.setSessionid(session.getId());//si es null no puede expulsar de la sesión
+			session.setAttribute(Constantes.ATT_USUARIO, usuario);
 			rd = request.getRequestDispatcher(Constantes.SERVLET_CURSOS);
 			rd.forward(request, response);
+
 		}else{
 			createSession(request);
 			//	rd = request.getRequestDispatcher("index.jsp");

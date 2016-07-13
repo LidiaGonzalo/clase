@@ -15,23 +15,32 @@
 	if(usuarios!=null){
 		%>
 	<jsp:include page="../includes/mensaje.jsp"/>
-		<div  class="row">
-			<div class="col-xs-4">Session Id</div>
-			<div class="col-xs-3">Nombre</div>
-			<div class="col-xs-3">Alias</div>
-			<div class="col-xs-2"></div>
-		</div>
-		<%
+		 <table class="table table-hover">
+    		<thead>
+      			<tr>
+        			<th class="col-xs-4">Session Id</th>
+        			<th class="col-xs-3">Nombre</th>
+					<th class="col-xs-3">Alias</th>
+					<th class="col-xs-2"></th>
+      			</tr>
+    		</thead>
+			
+			
+		
+		 <%
 		
 		for(Usuario user: usuarios){
 			
 			%>
-			<div  class="row">
-				<div class="col-xs-4"><%=user.getSessionid() %></div>
-				<div class="col-xs-3"><%=user.getUserName() %></div>
-				<div class="col-xs-3"><%=user.getNickname() %></div>
-				<div class="col-xs-2"><a class="btn btn-info" href="<%=Constantes.SERVLET_ADMINISTRACION %>?<%=Constantes.PAR_SESSIONID %>=<%=user.getSessionid()%>">Expulsar Usuario</a></div>
-			</div>
+			<tbody>
+				<tr>
+				<td class="col-xs-4"><%=user.getSessionid() %></td>
+				<td class="col-xs-3"><%=user.getUserName() %></td>
+				<td class="col-xs-3"><%=user.getNickname() %></td>
+				<td class="col-xs-2"><a class="btn btn-danger" href="<%=Constantes.SERVLET_ADMINISTRACION %>?<%=Constantes.PAR_SESSIONID %>=<%=user.getSessionid()%>"><span class="glyphicon glyphicon-remove-sign"></span>Expulsar Usuario</a></td>
+			    </tr>
+			</tbody>
+	
 			<%
 		}
 	}else{
@@ -40,7 +49,7 @@
 		<%
 	}
 	%>
-	</div>
+	</table>
 </section>
 </main>
 <%@include file="../includes/footer.jsp" %>
