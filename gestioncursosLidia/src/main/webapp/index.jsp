@@ -7,15 +7,15 @@
 	<section class="col-xs-12 col-md-7">
 		<header> <h2>Bienvenido</h2></header>
 		<p>
-			Bienvenidos a la pagina de Gestion de Alumnos de <span>Ipartek</span>.
+			Bienvenidos a la página de Gestión de Alumnos de <span>Ipartek</span>.
 
 		</p>
-		<p>Esta apliación ha sido en conjunto de....</p>
+		
 		
 	</section>
 	<aside class="col-xs-12 col-md-5 panel">
 		<jsp:include page="includes/mensaje.jsp" />
-		<div class="panel panel-success">
+		<div class="panel panel-primary">
    
    		<div class="panel-heading">
        		<div class="panel-title"><h2>Login</h2></div>
@@ -44,7 +44,7 @@
 
                <div class="form-group">
                    <div class="col-xs-12 controls">
-                     <button type="submit" id="btn-login" class="btn btn-success">Aceptar  </button>
+                     <button type="submit" id="btn-login" class="btn btn-primary">Aceptar  </button>
                     
 
                    </div>

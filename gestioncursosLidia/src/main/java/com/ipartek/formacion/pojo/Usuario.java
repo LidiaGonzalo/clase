@@ -4,14 +4,14 @@ public class Usuario {
 	private String userName;
 	private String userPassword;
 	private String nickname;
-
+	private String sessionid;//id para luego echar al usuario
 	public Usuario(){
 		setUserName("");
 		setUserPassword("");
 		setNickname("");
 	}
 
-
+    
 
 
 	public String getUserName() {
@@ -32,4 +32,13 @@ public class Usuario {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+
+	public String getSessionid() {
+		return sessionid;
+	}
+
+	public void setSessionid(String sessionid) {
+		this.sessionid = sessionid;
+	}
+	
 }

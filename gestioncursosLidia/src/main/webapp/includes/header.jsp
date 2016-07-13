@@ -28,10 +28,10 @@
 <body class="container-fluid">
 	<header class="row">
 		<h1 class="col-xs-8">Ipartek - Gestion de Cursos</h1>
-		<a class="btn col-xs-offset-2 col-xs-2 btn-info" href="#">
+		<!--  <a class="btn col-xs-offset-2 col-xs-2 btn-info" href="#">
 			<span class="fa fa-sign-out" aria-hidden="true"></span>
 			Desconectar
-		</a>
+		</a>-->
 	</header>
 	
 	<nav class="navbar navbar-inverse" role="navigation">
@@ -53,7 +53,7 @@
 					<a class="dropdown-toggle" href="<%=Constantes.SERVLET_CURSOS%>">
 						Cursos
 					</a>
-					<ul>
+					<ul class="dropdown-menu">
 						<li>
 							<a href="<%=Constantes.SERVLET_CURSOS%>">
 							Ver Cursos
@@ -67,10 +67,10 @@
 					</ul>
 				</li>
 				<li class="dropdown">
-					<a href="<%=Constantes.SERVLET_ALUMNOS%>">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="<%=Constantes.SERVLET_ALUMNOS%>">
 						Alumnos
 					</a>
-					<ul>
+					<ul class="dropdown-menu">
 						<li>
 							<a href="<%=Constantes.SERVLET_ALUMNOS%>">
 								Todos los alumnos
@@ -94,6 +94,22 @@
 						<li><a href="<%=Constantes.SERVLET_MODULOS%>?<%=Constantes.PAR_CODIGO%>=<%=Modulo.CODIGO_MODULO%>">Crear Modulo Nuevo</a></li>
 					</ul>
 				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="<%=Constantes.SERVLET_MODULOS%>">
+						Admin
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="<%=Constantes.SERVLET_ADMINISTRACION%>">
+								Ver Usuarios Conectados
+							</a>
+						</li>
+						
+					</ul>
+				</li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right" align="right">
+        		<li><a href="index.jsp"><i class="glyphicon glyphicon-off"></i>Log Out</a></li>
+      		</ul>
 			</div>
 		</nav>

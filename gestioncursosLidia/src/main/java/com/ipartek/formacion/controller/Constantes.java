@@ -39,6 +39,8 @@ public class Constantes {
 	public final static String SERVLET_MODULOS ="modulos.do";
 	//LOGIN
 	public final static String SERVLET_LOGIN ="login.do";
+	//ADMIN
+	public final static String SERVLET_ADMINISTRACION ="administracion.do";
 	
 	public final static DuracionModulo[] LISTA_DURACION = {DuracionModulo.HORAS15,DuracionModulo.HORAS20,DuracionModulo.HORAS45,DuracionModulo.HORAS80,DuracionModulo.HORAS90};
 	
@@ -52,6 +54,8 @@ public class Constantes {
 
 	public final static String PAR_USERNAME ="username";
 	public final static String PAR_PASSWORD ="password";
+	//session id
+	public final static String PAR_SESSIONID ="sessionid";
 	
 	public final static String JSP_LISTADO_CURSOS ="/cursos/listado.jsp";
 	public final static String JSP_CURSO ="/cursos/curso.jsp";
@@ -61,6 +65,8 @@ public class Constantes {
 	
 	public final static String JSP_LISTADO_MODULOS ="/modulos/listado.jsp";
 	public final static String JSP_MODULO ="/modulos/modulo.jsp";
+	//opción admin de la barra de navegación
+	public final static String JSP_LISTADO_USUARIOS ="/administracion/listado-usuarios.jsp";
 	
 	public final static int OP_CREATE = 0;
 	public final static int OP_READ = 1;
