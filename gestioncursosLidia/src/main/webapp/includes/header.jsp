@@ -37,10 +37,12 @@
 <body class="container-fluid">
 	<header class="row">
 		<h1 class="col-xs-8">Ipartek - Gestion de Cursos</h1>
+		
 		<!--  <a class="btn col-xs-offset-2 col-xs-2 btn-info" href="#">
 			<span class="fa fa-sign-out" aria-hidden="true"></span>
 			Desconectar
 		</a>-->
+		
 	</header>
 	
 	<nav class="navbar navbar-inverse" role="navigation">
@@ -120,9 +122,16 @@
 					</ul>
 				</li>
 			</ul>
+			<%
+				Usuario user = (Usuario)session.getAttribute(Constantes.ATT_USUARIO);//si no estas logueado que no aparezca el botón de logout 
+				if(user!= null){
+			%>
 			<ul class="nav navbar-nav navbar-right" align="right">
         		<li><a href="index.jsp"><i class="glyphicon glyphicon-off"><fmt:message key="header.desconectar"/></i></a></li>
         		
       		</ul>
+      		<%
+		       }
+			%>
 			</div>
 		</nav>
