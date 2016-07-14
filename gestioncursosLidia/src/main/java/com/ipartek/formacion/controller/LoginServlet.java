@@ -41,12 +41,15 @@ public class LoginServlet extends HttpServlet {
 		Usuario usuario = null;
 		String userName = request.getParameter(Constantes.PAR_USERNAME);
 		String pass = request.getParameter(Constantes.PAR_PASSWORD);
+		String idioma = request.getParameter(Constantes.PAR_IDIOMA);
 		if("lidia".equals(userName)&&"lidia".equals(pass)){
 			createSession(request);
 			usuario = new Usuario();
 			usuario.setUserName(userName);
 			usuario.setUserPassword(pass);
 			usuario.setNickname("alumna");
+			//recoger el idioma
+			//usuario.setIdioma(idioma).;
 			//añadir el id de la sesión
 			usuario.setSessionid(session.getId());//si es null no puede expulsar de la sesión
 			session.setAttribute(Constantes.ATT_USUARIO, usuario);
@@ -75,7 +78,6 @@ public class LoginServlet extends HttpServlet {
 		session.setMaxInactiveInterval(60*60*15);//15 mins
 	}
 }
-
 
 
 

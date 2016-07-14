@@ -1,4 +1,4 @@
-	<footer>
+	<footer >
 		<div>
 			Página realizada por Ipartek.
 		</div>	

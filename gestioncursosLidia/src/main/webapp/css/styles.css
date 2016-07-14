@@ -13,9 +13,11 @@ body{
 	margin-bottom: -60px;
 }
 footer{
+	
 	position: absolute;
 	height: 60px;
 	bottom: 0;
+	
 }
 .form-inline input{
 	width: 150px;

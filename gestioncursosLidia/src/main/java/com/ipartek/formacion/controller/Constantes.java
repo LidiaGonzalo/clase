@@ -52,11 +52,14 @@ public class Constantes {
 	public final static String PAR_DURACION ="duracion";
 	public final static String PAR_TIPOCURSO ="tipo_curso";
 	public final static String PAR_REFERENCIA="referencia";
+	//cookie
+	public final static String PAR_RECORDAR="recordar";
 
 	public final static String PAR_USERNAME ="username";
 	public final static String PAR_PASSWORD ="password";
 	//session id
 	public final static String PAR_SESSIONID ="sessionid";
+	
 	
 	public final static String JSP_LISTADO_CURSOS ="/cursos/listado.jsp";
 	public final static String JSP_CURSO ="/cursos/curso.jsp";
@@ -68,7 +71,7 @@ public class Constantes {
 	public final static String JSP_MODULO ="/modulos/modulo.jsp";
 	//opción admin de la barra de navegación
 	public final static String JSP_LISTADO_USUARIOS ="/administracion/listado-usuarios.jsp";
-	
+	public final static String JSP_HOME ="index.jsp";
 	public final static int OP_CREATE = 0;
 	public final static int OP_READ = 1;
 	public final static int OP_UPDATE = 2;

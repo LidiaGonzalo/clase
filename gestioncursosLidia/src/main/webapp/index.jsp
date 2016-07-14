@@ -1,3 +1,6 @@
+<%@page import="com.ipartek.formacion.pojo.Idioma"%>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %><!-- JSTL -->
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <%@page import="com.ipartek.formacion.controller.Constantes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -37,10 +40,21 @@
 		           <div class="input-group">
 						<div class="checkbox">
 			            	<label>  </label>
-								<input type="checkbox" value="1"> Recuerdame
+								<input type="checkbox" value="1"> Recuérdame
 			            </div>
                    </div>
-
+                   <p></p>
+                   <p>Selecciona idioma</p>
+                   <div class="input-group">
+                   
+  						<span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
+ 						<select class="form-control" id="sel1">
+    						<option><%=Idioma.CASTELLANO %></option>
+    						<option><%=Idioma.EUSKERA %></option>
+    						<option><%=Idioma.INGLES %></option>
+  						</select>
+				  </div>
+                  <p></p>
 
                <div class="form-group">
                    <div class="col-xs-12 controls">
